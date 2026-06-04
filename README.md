@@ -1,4 +1,4 @@
-![CI](https://github.com/gauthambinoy/gnosis/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/Gauthambinoy20/gnosis/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![Node](https://img.shields.io/badge/node-20-green)
 ![License](https://img.shields.io/badge/license-MIT-blue)
@@ -62,7 +62,7 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for deeper module-level detail.
 ### Docker Compose (recommended)
 
 ```bash
-git clone https://github.com/gauthambinoy/gnosis.git
+git clone https://github.com/Gauthambinoy20/gnosis.git
 cd gnosis
 cp backend/.env.example backend/.env
 # Fill SECRET_KEY before production; local dev may use DEBUG=true with a generated key.

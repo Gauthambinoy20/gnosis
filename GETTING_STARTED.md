@@ -5,7 +5,7 @@ Run the full local stack and create your first AI automation agent.
 ## One-Minute Local Setup
 
 ```bash
-git clone https://github.com/gauthambinoy/gnosis.git
+git clone https://github.com/Gauthambinoy20/gnosis.git
 cd gnosis
 cp backend/.env.example backend/.env
 # For local-only use, set DEBUG=true and generate SECRET_KEY in backend/.env:

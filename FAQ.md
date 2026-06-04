@@ -175,6 +175,6 @@ And run the prune cron (see `backend/scripts/prune_audit_log.py`).
 
 ## Still stuck?
 
-- Search existing issues: https://github.com/gauthambinoy/gnosis/issues
+- Search existing issues: https://github.com/Gauthambinoy20/gnosis/issues
 - Open a new issue with: `docker-compose logs --tail=200`, your `.env` (with secrets redacted), and exact reproduction steps
 - Security concerns: see [SECURITY.md](SECURITY.md) — do not file public issues for vulnerabilities
