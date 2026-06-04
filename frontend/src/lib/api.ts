@@ -1,0 +1,67 @@
+import { useAuth } from "./auth";
+
+// Tokens are sourced exclusively from the in-memory Zustand store
+// (see lib/auth.ts). Never read tokens directly from localStorage —
+// that storage is intentionally unused for auth material (issue H11).
+function normalizeApiBase(url: string) {
+  const trimmed = url.replace(/\/+$/, "");
+  return trimmed.endsWith("/api/v1") ? trimmed : `${trimmed}/api/v1`;
+}
+
+const API = normalizeApiBase(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000");
+
+class ApiClient {
+  private getHeaders(): HeadersInit {
+    const token = useAuth.getState().accessToken;
+    return {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    };
+  }
+
+  async fetch(path: string, options: RequestInit = {}): Promise<Response> {
+    const res = await fetch(`${API}${path}`, {
+      ...options,
+      headers: { ...this.getHeaders(), ...options.headers },
+    });
+
+    // Auto-refresh on 401
+    if (res.status === 401) {
+      const refreshed = await useAuth.getState().refreshAccessToken();
+      if (refreshed) {
+        return fetch(`${API}${path}`, {
+          ...options,
+          headers: { ...this.getHeaders(), ...options.headers },
+        });
+      }
+      useAuth.getState().logout();
+      if (typeof window !== "undefined") window.location.href = "/login";
+    }
+
+    return res;
+  }
+
+  async get(path: string) {
+    return this.fetch(path);
+  }
+
+  async post(path: string, body?: unknown) {
+    return this.fetch(path, {
+      method: "POST",
+      body: body ? JSON.stringify(body) : undefined,
+    });
+  }
+
+  async put(path: string, body: unknown) {
+    return this.fetch(path, {
+      method: "PUT",
+      body: JSON.stringify(body),
+    });
+  }
+
+  async delete(path: string) {
+    return this.fetch(path, { method: "DELETE" });
+  }
+}
+
+export const api = new ApiClient();
