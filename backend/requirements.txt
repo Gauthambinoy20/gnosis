@@ -4,7 +4,7 @@
 
 # Web framework
 fastapi>=0.136.1,<0.140
-starlette>=0.40,<0.51
+starlette>=1.0.1,<2
 uvicorn[standard]>=0.46.0,<0.47
 python-multipart>=0.0.20
 pydantic>=2.13.3,<3
