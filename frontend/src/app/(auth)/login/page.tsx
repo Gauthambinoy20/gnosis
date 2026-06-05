@@ -94,12 +94,12 @@ export default function LoginPage() {
           {/* Email/Password Form */}
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label className="text-sm text-gnosis-muted mb-1 block">Email</label>
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full bg-gnosis-bg border border-gnosis-border rounded-xl px-4 py-2.5 text-sm text-gnosis-text focus:outline-none focus:border-gnosis-primary/50" />
+              <label className="text-sm text-white/70 mb-1 block">Email</label>
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:border-gnosis-primary focus:bg-white/[0.14] transition-colors" />
             </div>
             <div>
-              <label className="text-sm text-gnosis-muted mb-1 block">Password</label>
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="w-full bg-gnosis-bg border border-gnosis-border rounded-xl px-4 py-2.5 text-sm text-gnosis-text focus:outline-none focus:border-gnosis-primary/50" />
+              <label className="text-sm text-white/70 mb-1 block">Password</label>
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:border-gnosis-primary focus:bg-white/[0.14] transition-colors" />
             </div>
             <Button type="submit" disabled={loading} className="w-full">
               {loading ? (
