@@ -9,6 +9,14 @@
 
 Gnosis is built as a portfolio-grade SaaS foundation: FastAPI + async SQLAlchemy backend, Next.js 16 frontend, CI, Docker Compose, observability, security middleware, Terraform AWS infrastructure, and mocked LLM tests so contributors can validate changes without provider keys.
 
+## Screenshots
+
+| Landing | Sign In |
+| --- | --- |
+| ![Landing page](docs/screenshots/landing.png) | ![Sign in](docs/screenshots/login.png) |
+
+The dashboard (agents, oracle, swarm, memory, pipelines, …) renders after authentication — run the stack with `docker compose up` to explore it.
+
 ## Recruiter / Startup Demo Path
 
 1. **Run locally in 5 minutes** with Docker Compose.
